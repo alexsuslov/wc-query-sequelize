@@ -39,9 +39,9 @@ export const Query = (query)=>{
   // order
   if (order){
     if (order[0]==='-')
-      resp['order']=[order.slice(1),'DESC'];
+      resp['order']=[[order.slice(1),'DESC']];
     else
-      resp['order']=[order,'ASC'];
+      resp['order']=[[order,'ASC']];
     delete query.order;
   }
 

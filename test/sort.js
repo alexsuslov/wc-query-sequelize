@@ -18,8 +18,8 @@ describe ("Query", ()=>{
 
       const resp = query({ order: '-name' });
 
-      assert.equal('name', resp.order[0]);
-      assert.equal('DESC', resp.order[1]);
+      assert.equal('name', resp.order[0][0]);
+      assert.equal('DESC', resp.order[0][1]);
     });
   });
 });

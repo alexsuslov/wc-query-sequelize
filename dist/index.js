@@ -63,7 +63,7 @@ var Query = exports.Query = function Query(query) {
   }
   // order
   if (order) {
-    if (order[0] === '-') resp['order'] = [order.slice(1), 'DESC'];else resp['order'] = [order, 'ASC'];
+    if (order[0] === '-') resp['order'] = [[order.slice(1), 'DESC']];else resp['order'] = [[order, 'ASC']];
     delete query.order;
   }
 
