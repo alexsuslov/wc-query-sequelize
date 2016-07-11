@@ -20,15 +20,13 @@ const items = {
 ```
 
 ```
-{items(limit:16, order:'-updatedAt', name:"~биомед" ){id name}}
+{items(limit:16, order:'-updatedAt', name:"~test" ){id name}}
 ```
 
 ```
 SELECT * FROM `Items` ORDER BY `Items`.`updatedAt` DESC LIMIT 16;
+SELECT `id`, `name`, `info`, `url`, `createdAt`, `updatedAt` FROM `Microscope` AS `Microscope` WHERE (lower(`name`) LIKE '%биомед%' OR `Microscope`.`info` LIKE '%биомед%') ORDER BY `Microscope`.`name` ASC LIMIT 50;
 ```
-
-
-
 
 ## Comparison Query Operators
 ### EQ

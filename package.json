@@ -1,6 +1,6 @@
 {
   "name": "wc-query-sequelize",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Convert http req to sequelize find object",
   "main": "dist/index.js",
   "scripts": {

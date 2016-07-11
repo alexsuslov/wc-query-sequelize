@@ -37,7 +37,7 @@ var vents = exports.vents = {
   "~": function _(name, value) {
     return {
       name: name,
-      value: _sequelize2.default.where(_sequelize2.default.fn('lower', _sequelize2.default.col(name)), { $like: "%" + value.toLowerCase() + "%" })
+      value: _sequelize2.default.where(_sequelize2.default.fn('LOWER', _sequelize2.default.col(name)), { $like: "%" + value.toLowerCase() + "%" })
     };
   }
 }; /**
@@ -69,12 +69,13 @@ var Query = exports.Query = function Query(query) {
 
   // EQ
   Object.keys(query).forEach(function (name) {
+    if (!resp.where) resp.where = {};
     var vent = vents[query[name][0]];
     if (vent) {
       var r = vent(name, query[name].slice(1));
-      resp[r.name] = r.value;
+      resp.where[r.name] = r.value;
     } else {
-      resp[name] = query[name];
+      resp.where[name] = query[name];
     }
   });
   return resp;
