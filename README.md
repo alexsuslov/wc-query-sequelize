@@ -24,8 +24,7 @@ const items = {
 ```
 
 ```
-SELECT * FROM `Items` ORDER BY `Items`.`updatedAt` DESC LIMIT 16;
-SELECT `id`, `name`, `info`, `url`, `createdAt`, `updatedAt` FROM `Microscope` AS `Microscope` WHERE (lower(`name`) LIKE '%биомед%' OR `Microscope`.`info` LIKE '%биомед%') ORDER BY `Microscope`.`name` ASC LIMIT 50;
+SELECT * FROM `Items` WHERE LOWER(`name`) LIKE '%test%' ORDER BY `Items`.`updatedAt` DESC LIMIT 16;
 ```
 
 ## Comparison Query Operators
