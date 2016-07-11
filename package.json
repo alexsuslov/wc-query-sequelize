@@ -1,0 +1,31 @@
+{
+  "name": "wc-query",
+  "version": "0.0.15",
+  "description": "Convert http req to sequelize find object",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha --require babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexsuslov/wc-query-sequelize"
+  },
+  "keywords": [
+    "express",
+    "rest",
+    "graphQL",
+    "api",
+    "sequelize"
+  ],
+  "author": "Alex Suslov",
+  "email": "suslov@me.com",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "dependencies": {
+    "sequelize": "^3.23.4"
+  }
+}
