@@ -7,9 +7,10 @@ describe ("Query", ()=>{
     it("should return options: order:[ 'name', 'ASC']", ()=>{
 
       const resp = query({ order: 'name' });
+      // console.log(resp)
 
-      assert.equal('name', resp.order[0]);
-      assert.equal('ASC', resp.order[1]);
+      assert.equal('name', resp.order[0][0]);
+      assert.equal('ASC', resp.order[0][1]);
     });
   });
 

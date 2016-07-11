@@ -1,4 +1,35 @@
 # Express req.query -> sequelize find object
+
+## Simple use in graphQL controller:
+```
+import wQueryS from 'wc-query-sequelize'
+
+const items = {
+  type: new GraphQLList(Type),
+  description: 'get item list',
+  args: {
+    limit : { type: IntType},
+    skip  : { type: IntType},
+    order : { type: StringType},
+    name  : { type: StringType},
+  },
+  resolve( request, args, session) {
+    const options = wQueryS(args);
+    return Model.findAll(options);
+  }
+```
+
+```
+{items(limit:16, order:'-updatedAt', name:"~биомед" ){id name}}
+```
+
+```
+SELECT * FROM `Items` ORDER BY `Items`.`updatedAt` DESC LIMIT 16;
+```
+
+
+
+
 ## Comparison Query Operators
 ### EQ
 

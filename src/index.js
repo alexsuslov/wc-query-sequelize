@@ -16,11 +16,10 @@ export const vents = {
     return {
       name,
       value: Sequelize.where(
-        Sequelize.fn('lower', Sequelize.col(name)),
-          { $like:`%${value.toLowerCase()}%`}
-      ),
-  }
-  } ,
+        Sequelize.fn( 'LOWER', Sequelize.col(name)),
+        { $like: `%${value.toLowerCase()}%`}),
+    }
+  },
 }
 
 export const Query = (query)=>{
@@ -47,12 +46,13 @@ export const Query = (query)=>{
 
   // EQ
   Object.keys(query).forEach( (name)=>{
+    if (!resp.where) resp.where = {};
     const vent = vents[query[name][0]];
     if (vent){
       const r = vent( name, query[name].slice(1) );
-      resp[r.name] = r.value;
+      resp.where[r.name] = r.value;
     }else{
-      resp[name] = query[name];
+      resp.where[name] = query[name];
     }
   })
   return resp;
