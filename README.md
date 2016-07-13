@@ -81,11 +81,11 @@ url: /api/item?name=~test
 ### Sort
 
 - /api/item?order=name
-    + options.sort:{name:1}
+    + order:['name', 'ASC']
 
 - /api/item?order=-name
-    + options.sort:{name:-1}
+    + order:['name', 'DESC']
 
 ### Limit, Skip
 - /api/item?limit=5&skip=5
-    + Project.findAll({ offset: 5, limit: 5 })
+    + { offset: 5, limit: 5 }
