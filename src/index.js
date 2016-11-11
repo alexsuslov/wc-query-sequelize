@@ -11,7 +11,7 @@ export const vents = {
   "[" : ( name, value) => {return { name, value:{ $lte: value}}} ,
 
   "@" : ( name, value) => {return { name, value:{ $in:  value.split('|')}}} ,
-  "#" : ( name, value) => {return { name, value:{ $nin: value.split('|')}}} ,
+  "#" : ( name, value) => {return { name, value:{ $notIn: value.split('|')}}} ,
   "~" : ( name, value) => {
     return {
       name,
